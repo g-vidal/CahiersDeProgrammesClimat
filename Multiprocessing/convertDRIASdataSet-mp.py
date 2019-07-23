@@ -13,16 +13,16 @@ def convert_file(localpathin, localpathout, driasfilename):
     nameout = localpathout + driasfilename
     # print (namein, '\n',  nameout, '\n\n')
     # open input file
-    orig_drias = nc.Dataset(namein)
+    orig_drias = nc.Dataset(namein, mode='r', format="NETCDF4")
     # open output file
-    # for security reasons remove the file bearing this filename 
+    # for security reasons remove the file bearing this filename
     # ! take care not to loose important data
     try:
-        os.remove(nameout)  
+        os.remove(nameout)
     except OSError:
         pass
     converted_set = nc.Dataset(nameout, mode='w', format='NETCDF4')
- 
+
     for thisAttr in orig_drias.ncattrs():
         converted_set.setncattr(thisAttr, orig_drias.getncattr(thisAttr))
     # create dimensions
