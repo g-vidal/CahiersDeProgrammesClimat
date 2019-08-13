@@ -7,7 +7,9 @@ import os
 import multiprocessing as mp
 
 # path = 'http://geoloc-tremplin.ens-lyon.fr/climato-data/Toulouse-1/'
-path = '/home/vidal/TremplinDesSciences/2019/ClimatLyon/ConvertedDrias/Toulouse-1/'
+path = '/home/vidal/TremplinDesSciences/2019/ClimatDrias/ConvertedDrias/Lyon-1/'
+# local_Path to store the new netCDF file combining data
+local_path = '/home/vidal/TremplinDesSciences/2019/ClimatDrias/ConvertedDrias/Lyon-1/'
 
 t_max_26_thisrun = nc.Dataset(path + 'tasmax_metro_CNRM_Aladin_rcp2.6_QT_RCP2.6_20060101-21001231.nc',
                               mode='r', format="NETCDF4", diskless=False)
@@ -34,12 +36,12 @@ print('Emprise du projet en noeuds ALADIN ;\n', thisrun_gridi[0], '# ', thisrun_
 
 #  par sécurité efface le fichier portadatain=numpy.array(['foo', 'bar'], dtype='S3')nt ce nom
 #  ! attention aux pertes possibles
-
+thisrun = str(datetime.now().strftime("%Y-%m-%d-%H:%M")) 
 try:
-    os.remove('t_min-t_max-rstr_thisrun_26-45-85.nc')
+    os.remove(local_path + 't_min-t_max-rstr_thisrun_26-45-85.nc')
 except OSError:
     pass
-extract_params_year_month=nc.Dataset('t_min-t_max-rstr_thisrun_26-45-85.nc', mode='w', format='NETCDF4')
+extract_params_year_month=nc.Dataset(local_path + 't_min-t_max-rstr_' + thisrun +'_26-45-85.nc', mode='w', format='NETCDF4')
 
 #  tableau du nom des mois
 listmonth=np.array(['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 

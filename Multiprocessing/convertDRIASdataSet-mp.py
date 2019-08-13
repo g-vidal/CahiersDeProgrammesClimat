@@ -70,8 +70,8 @@ i = 0
 
 # pathIn = '/home/vidal/TremplinDesSciences/2019/ClimatLyon/DataDrias/'
 # pathOut = '/home/vidal/TremplinDesSciences/2019/ClimatLyon/ConvertedDrias/'
-path_in = '/home/vidal/TremplinDesSciences/2019/ClimatLyon/DataDrias/Toulouse-1/'
-path_out = '/home/vidal/TremplinDesSciences/2019/ClimatLyon/ConvertedDrias/Toulouse-1/'
+path_in = '/home/vidal/TremplinDesSciences/2019/ClimatDrias/DataDrias/Lyon-1/'
+path_out = '/home/vidal/TremplinDesSciences/2019/ClimatDrias/ConvertedDrias/Lyon-1/'
 
 Names = ['tasmin_metro_CNRM_Aladin_histo_QT_REF_19500101-20051231.nc',
          'tasmin_metro_CNRM_Aladin_rcp2.6_QT_RCP2.6_20060101-21001231.nc',
