@@ -15,10 +15,17 @@ def convert_file(localpathin, localpathout, driasfilename):
     # open input file
     orig_drias = nc.Dataset(namein, mode='r', format="NETCDF4")
     # open output file
+<<<<<<< HEAD
+    # for security reasons remove the file bearing this filename
+    # ! take care not to loose important data
+    try:
+        os.remove(nameout)
+=======
     # for security reasons remove the file bearing this filename 
     # ! take care not to loose important data
     try:
         os.remove(nameout)  
+>>>>>>> 936328c6058ecd5b2e5d309478c4e13dde0e0db6
     except OSError:
         pass
     converted_set = nc.Dataset(nameout, mode='w', format='NETCDF4')
@@ -73,6 +80,27 @@ i = 0
 path_in = '/home/vidal/TremplinDesSciences/2019/ClimatLyon/DataDrias/Toulouse-1/'
 path_out = '/home/vidal/TremplinDesSciences/2019/ClimatLyon/ConvertedDrias/Toulouse-1/'
 
+<<<<<<< HEAD
+Names = ['tasmin_metro_CNRM_Aladin_histo_QT_REF_19500101-20051231.nc',
+         'tasmin_metro_CNRM_Aladin_rcp2.6_QT_RCP2.6_20060101-21001231.nc',
+         'tasmin_metro_CNRM_Aladin_rcp4.5_QT_RCP4.5_20060101-21001231.nc',
+         'tasmin_metro_CNRM_Aladin_rcp8.5_QT_RCP8.5_20060101-21001231.nc',
+         'huss_metro_CNRM_Aladin_histo_QT_REF_19500101-20051231.nc',
+         'huss_metro_CNRM_Aladin_rcp2.6_QT_RCP2.6_20060101-21001231.nc', 
+         'huss_metro_CNRM_Aladin_rcp4.5_QT_RCP4.5_20060101-21001231.nc',
+         'huss_metro_CNRM_Aladin_rcp8.5_QT_RCP8.5_20060101-21001231.nc',
+         'prsnls_metro_CNRM_Aladin_histo_QT_REF_19500101-20051231.nc',
+         'prsnls_metro_CNRM_Aladin_rcp2.6_QT_RCP2.6_20060101-21001231.nc',
+         'prsnls_metro_CNRM_Aladin_rcp4.5_QT_RCP4.5_20060101-21001231.nc',
+         'prsnls_metro_CNRM_Aladin_rcp8.5_QT_RCP8.5_20060101-21001231.nc',
+         'rstr_metro_CNRM_Aladin_histo_QT_REF_19500101-20051231.nc',
+         'rstr_metro_CNRM_Aladin_rcp2.6_QT_RCP2.6_20060101-21001231.nc',
+         'rstr_metro_CNRM_Aladin_rcp4.5_QT_RCP4.5_20060101-21001231.nc',
+         'rstr_metro_CNRM_Aladin_rcp8.5_QT_RCP8.5_20060101-21001231.nc',
+         'tasmax_metro_CNRM_Aladin_histo_QT_REF_19500101-20051231.nc',
+         'tasmax_metro_CNRM_Aladin_rcp2.6_QT_RCP2.6_20060101-21001231.nc',
+         'tasmax_metro_CNRM_Aladin_rcp4.5_QT_RCP4.5_20060101-21001231.nc',
+=======
 Names = ['tasmin_metro_CNRM_Aladin_histo_QT_REF_19500101-20051231.nc', 
          'tasmin_metro_CNRM_Aladin_rcp2.6_QT_RCP2.6_20060101-21001231.nc', 
          'tasmin_metro_CNRM_Aladin_rcp4.5_QT_RCP4.5_20060101-21001231.nc', 
@@ -92,6 +120,7 @@ Names = ['tasmin_metro_CNRM_Aladin_histo_QT_REF_19500101-20051231.nc',
          'tasmax_metro_CNRM_Aladin_histo_QT_REF_19500101-20051231.nc', 
          'tasmax_metro_CNRM_Aladin_rcp2.6_QT_RCP2.6_20060101-21001231.nc', 
          'tasmax_metro_CNRM_Aladin_rcp4.5_QT_RCP4.5_20060101-21001231.nc', 
+>>>>>>> 936328c6058ecd5b2e5d309478c4e13dde0e0db6
          'tasmax_metro_CNRM_Aladin_rcp8.5_QT_RCP8.5_20060101-21001231.nc']
 
 # ============================== linear execution ==========================
@@ -103,7 +132,11 @@ for i, this_name in enumerate(Names):
 # ================================= parallel execution ========================
 #for i, this_name in enumerate(Names):
 #    pool.apply_async(convert_file, args=(path_in, path_out, this_name), callback=collect_result)
+<<<<<<< HEAD
+#
+=======
 
+>>>>>>> 936328c6058ecd5b2e5d309478c4e13dde0e0db6
 #pool.close()
 #pool.join()
 # ================================= /parallel execution ========================

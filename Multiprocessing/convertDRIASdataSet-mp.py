@@ -15,14 +15,14 @@ def convert_file(localpathin, localpathout, driasfilename):
     # open input file
     orig_drias = nc.Dataset(namein, mode='r', format="NETCDF4")
     # open output file
-    # for security reasons remove the file bearing this filename 
+    # for security reasons remove the file bearing this filename
     # ! take care not to loose important data
     try:
-        os.remove(nameout)  
+        os.remove(nameout)
     except OSError:
         pass
     converted_set = nc.Dataset(nameout, mode='w', format='NETCDF4')
- 
+
     for thisAttr in orig_drias.ncattrs():
         converted_set.setncattr(thisAttr, orig_drias.getncattr(thisAttr))
     # create dimensions
@@ -70,8 +70,8 @@ i = 0
 
 # pathIn = '/home/vidal/TremplinDesSciences/2019/ClimatLyon/DataDrias/'
 # pathOut = '/home/vidal/TremplinDesSciences/2019/ClimatLyon/ConvertedDrias/'
-path_in = '/home/vidal/TremplinDesSciences/2019/ClimatLyon/DataDrias/Toulouse-1/'
-path_out = '/home/vidal/TremplinDesSciences/2019/ClimatLyon/ConvertedDrias/Toulouse-1/'
+path_in = '/home/vidal/TremplinDesSciences/2019/ClimatDrias/DataDrias/Lyon-1/'
+path_out = '/home/vidal/TremplinDesSciences/2019/ClimatDrias/ConvertedDrias/Lyon-1/'
 
 Names = ['tasmin_metro_CNRM_Aladin_histo_QT_REF_19500101-20051231.nc',
          'tasmin_metro_CNRM_Aladin_rcp2.6_QT_RCP2.6_20060101-21001231.nc',
